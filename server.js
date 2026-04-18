@@ -12,14 +12,20 @@ app.use(express.json());
 
 // Firebase initialization (will be configured with actual credentials)
 let db = null;
+let storage = null;
+let auth = null;
 try {
   if (process.env.FIREBASE_SERVICE_ACCOUNT_KEY) {
     const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
     admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount)
+      credential: admin.credential.cert(serviceAccount),
+      databaseURL: `https://${process.env.FIREBASE_PROJECT_ID}-default-rtdb.firebaseio.com`,
+      storageBucket: `${process.env.FIREBASE_PROJECT_ID}.appspot.com`
     });
     db = admin.firestore();
-    console.log('Firebase initialized successfully');
+    storage = admin.storage();
+    auth = admin.auth();
+    console.log('Firebase initialized successfully for project:', process.env.FIREBASE_PROJECT_ID);
   } else {
     console.log('Firebase not configured - running in development mode');
   }
@@ -41,7 +47,13 @@ app.get('/health', (req, res) => {
   res.json({
     status: 'healthy',
     timestamp: new Date().toISOString(),
-    firebase: db ? 'connected' : 'not configured'
+    firebase: {
+      connected: db ? true : false,
+      project: process.env.FIREBASE_PROJECT_ID || 'not configured',
+      firestore: db ? 'connected' : 'not configured',
+      storage: storage ? 'connected' : 'not configured',
+      auth: auth ? 'connected' : 'not configured'
+    }
   });
 });
 
