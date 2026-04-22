@@ -3,16 +3,30 @@ const cors = require('cors');
 const admin = require('firebase-admin');
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./src/swagger');
+const http = require('http');
+const { Server } = require('socket.io');
 const poiRoutes = require('./src/routes/poiRoutes');
 const creatureRoutes = require('./src/routes/creatureRoutes');
 const playerRoutes = require('./src/routes/playerRoutes');
 const authRoutes = require('./src/routes/authRoutes');
 const mapRoutes = require('./src/routes/mapRoutes');
 const battleRoutes = require('./src/routes/battleRoutes');
+const SocketManager = require('./src/services/socketManager');
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+const server = http.createServer(app);
+const io = new Server(server, {
+  cors: {
+    origin: '*',
+    methods: ['GET', 'POST']
+  }
+});
+
+// Initialize Socket Manager
+const socketManager = new SocketManager(io);
 
 // Middleware
 app.use(cors());
@@ -80,9 +94,10 @@ app.get('/health', (req, res) => {
 
 
 // Start server
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Furlan Go Backend running on port ${PORT}`);
   console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`WebSocket server initialized`);
 });
 
 module.exports = app;
