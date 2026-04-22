@@ -8,6 +8,7 @@ const creatureRoutes = require('./src/routes/creatureRoutes');
 const playerRoutes = require('./src/routes/playerRoutes');
 const authRoutes = require('./src/routes/authRoutes');
 const mapRoutes = require('./src/routes/mapRoutes');
+const battleRoutes = require('./src/routes/battleRoutes');
 require('dotenv').config();
 
 const app = express();
@@ -23,6 +24,7 @@ app.use('/api/poi', poiRoutes);
 app.use('/api/creatures', creatureRoutes);
 app.use('/api/players', playerRoutes);
 app.use('/api/map', mapRoutes);
+app.use('/api/battle', battleRoutes);
 
 // Swagger Documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
