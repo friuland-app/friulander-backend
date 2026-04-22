@@ -6,6 +6,7 @@ const swaggerSpec = require('./src/swagger');
 const poiRoutes = require('./src/routes/poiRoutes');
 const creatureRoutes = require('./src/routes/creatureRoutes');
 const playerRoutes = require('./src/routes/playerRoutes');
+const authRoutes = require('./src/routes/authRoutes');
 require('dotenv').config();
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 // API Routes
+app.use('/api/auth', authRoutes);
 app.use('/api/poi', poiRoutes);
 app.use('/api/creatures', creatureRoutes);
 app.use('/api/players', playerRoutes);
