@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const admin = require('firebase-admin');
+const helmet = require('helmet');
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./src/swagger');
 const http = require('http');
@@ -12,6 +13,16 @@ const authRoutes = require('./src/routes/authRoutes');
 const mapRoutes = require('./src/routes/mapRoutes');
 const battleRoutes = require('./src/routes/battleRoutes');
 const SocketManager = require('./src/services/socketManager');
+const {
+  rateLimiter,
+  strictRateLimiter,
+  validateGPS,
+  detectTeleport,
+  sanitizeInput,
+  enforceHTTPS,
+  logSuspiciousActivity,
+  checkBanStatus
+} = require('./src/middleware/security');
 require('dotenv').config();
 
 const app = express();
@@ -29,16 +40,25 @@ const io = new Server(server, {
 const socketManager = new SocketManager(io);
 
 // Middleware
-app.use(cors());
+app.use(helmet());
+app.use(enforceHTTPS);
+app.use(cors({
+  origin: process.env.CORS_ORIGIN || '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
+app.use(sanitizeInput);
+app.use(logSuspiciousActivity);
+app.use(rateLimiter);
 
 // API Routes
-app.use('/api/auth', authRoutes);
+app.use('/api/auth', strictRateLimiter, authRoutes);
 app.use('/api/poi', poiRoutes);
 app.use('/api/creatures', creatureRoutes);
-app.use('/api/players', playerRoutes);
-app.use('/api/map', mapRoutes);
-app.use('/api/battle', battleRoutes);
+app.use('/api/players', checkBanStatus, playerRoutes);
+app.use('/api/map', validateGPS, detectTeleport, mapRoutes);
+app.use('/api/battle', checkBanStatus, battleRoutes);
 
 // Swagger Documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
