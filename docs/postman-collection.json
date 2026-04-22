@@ -1,0 +1,114 @@
+{
+  "info": {
+    "name": "Friulander Backend API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\",\n  \"name\": \"Test User\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "login"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Creatures",
+      "item": [
+        {
+          "name": "Get All Creatures",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/creatures",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "creatures"]
+            }
+          }
+        },
+        {
+          "name": "Get Creature by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/creatures/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "creatures", ":id"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Map",
+      "item": [
+        {
+          "name": "Get All POIs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/map/poi",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "map", "poi"]
+            }
+          }
+        },
+        {
+          "name": "Get Nearby POIs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/map/poi/nearby?lat=46.06&lng=13.23&radius=5",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "map", "poi", "nearby"],
+              "query": [
+                {"key": "lat", "value": "46.06"},
+                {"key": "lng", "value": "13.23"},
+                {"key": "radius", "value": "5"}
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ]
+}
