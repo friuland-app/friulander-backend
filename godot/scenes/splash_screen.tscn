@@ -1,0 +1,109 @@
+[gd_scene load_steps=4 format=3 uid="uid://splash_screen"]
+
+[ext_resource type="Theme" uid="uid://c0kq6j8d0h0q" path="res://theme/main_theme.tres" id="1_theme"]
+[ext_resource type="Script" path="res://scripts/ui/splash_screen.gd" id="2_script"]
+
+[sub_resource type="Gradient" id="1"]
+colors = PackedColorArray(0.176471, 0.352941, 0.152941, 1, 0.29, 0.56, 0.89, 1)
+
+[node name="SplashScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_theme")
+script = ExtResource("2_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.176471, 0.352941, 0.152941, 1)
+
+[node name="LogoContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LogoContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LogoPlaceholder" type="Label" parent="LogoContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "F"
+horizontal_alignment = 1
+
+[node name="TitleLabel" type="Label" parent="LogoContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Friulander"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="LogoContainer/VBoxContainer"]
+layout_mode = 2
+text = "Scopri il Friuli"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -100.0
+offset_right = -100.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 0.0
+
+[node name="LoadingLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -140.0
+offset_right = -100.0
+offset_bottom = -110.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Caricamento..."
+horizontal_alignment = 1
+
+[node name="QuoteLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -200.0
+offset_right = -50.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "\"Il Friuli è una terra magica\""
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="LoadingTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="SceneTransitionTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true

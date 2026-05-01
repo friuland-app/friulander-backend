@@ -1,0 +1,87 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://c0kq6j8d0h0q"]
+
+[ext_resource type="FontFile" uid="uid://font_inter_regular" path="res://fonts/Inter-Regular.ttf" id="1_font"]
+[ext_resource type="FontFile" uid="uid://font_poppins_bold" path="res://fonts/Poppins-Bold.ttf" id="2_font"]
+
+[sub_resource type="StyleBoxFlat" id="1"]
+bg_color = Color(0.176471, 0.352941, 0.152941, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="2"]
+bg_color = Color(0.83, 0.627, 0.09, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="3"]
+bg_color = Color(0.29, 0.56, 0.89, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="4"]
+bg_color = Color(0.94, 0.27, 0.27, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="5"]
+bg_color = Color(0.95, 0.95, 0.95, 1)
+border_color = Color(0.42, 0.45, 0.47, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="6"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="7"]
+bg_color = Color(0.176471, 0.352941, 0.152941, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+
+[sub_resource type="StyleBoxFlat" id="8"]
+bg_color = Color(0.176471, 0.352941, 0.152941, 1)
+
+[resource]
+default_font = ExtResource("1_font")
+default_font_size = 14
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(0.5, 0.5, 0.5, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(0.9, 0.9, 0.9, 1)
+Button/constants/h_separation = 8
+Button/font_sizes/font_size = 14
+Button/styles/disabled = SubResource("1")
+Button/styles/focus = SubResource("1")
+Button/styles/hover = SubResource("1")
+Button/styles/normal = SubResource("1")
+Button/styles/pressed = SubResource("1")
+Label/colors/font_color = Color(0.11, 0.13, 0.15, 1)
+Label/font_sizes/font_size = 14
+LineEdit/colors/font_color = Color(0.11, 0.13, 0.15, 1)
+LineEdit/font_sizes/font_size = 14
+LineEdit/styles/focus = SubResource("5")
+LineEdit/styles/normal = SubResource("5")
+LineEdit/styles/read_only = SubResource("5")
+Panel/styles/panel = SubResource("6")
+ProgressBar/colors/font_color = Color(1, 1, 1, 1)
+ProgressBar/styles/background = SubResource("5")
+ProgressBar/styles/fill = SubResource("3")
+RichTextLabel/colors/default_color = Color(0.11, 0.13, 0.15, 1)
+RichTextLabel/font_sizes/normal_font_size = 14

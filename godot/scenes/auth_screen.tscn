@@ -1,0 +1,204 @@
+[gd_scene load_steps=4 format=3 uid="uid://auth_screen"]
+
+[ext_resource type="Theme" uid="uid://c0kq6j8d0h0q" path="res://theme/main_theme.tres" id="1_theme"]
+[ext_resource type="Script" path="res://scripts/ui/auth_screen.gd" id="2_script"]
+
+[sub_resource type="Gradient" id="1_gradient"]
+colors = PackedColorArray(0.176471, 0.352941, 0.152941, 1, 0.29, 0.56, 0.89, 1)
+
+[node name="AuthScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_theme")
+script = ExtResource("2_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.176471, 0.352941, 0.152941, 1)
+
+[node name="MainContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MainContainer"]
+custom_minimum_size = Vector2(350, 500)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="LogoLabel" type="Label" parent="MainContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "F"
+horizontal_alignment = 1
+
+[node name="TitleLabel" type="Label" parent="MainContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Friulander"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="MainContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Accedi per iniziare l'avventura"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="MainContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="TabContainer" type="HBoxContainer" parent="MainContainer/Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LoginTab" type="Button" parent="MainContainer/Panel/VBoxContainer/TabContainer"]
+layout_mode = 2
+button_mask = 0
+text = "Accedi"
+
+[node name="RegisterTab" type="Button" parent="MainContainer/Panel/VBoxContainer/TabContainer"]
+layout_mode = 2
+text = "Registrati"
+
+[node name="Spacer2" type="Control" parent="MainContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="LoginForm" type="VBoxContainer" parent="MainContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="EmailLabel" type="Label" parent="MainContainer/Panel/VBoxContainer/LoginForm"]
+layout_mode = 2
+text = "Email"
+
+[node name="EmailInput" type="LineEdit" parent="MainContainer/Panel/VBoxContainer/LoginForm"]
+layout_mode = 2
+placeholder_text = "La tua email"
+
+[node name="PasswordLabel" type="Label" parent="MainContainer/Panel/VBoxContainer/LoginForm"]
+layout_mode = 2
+text = "Password"
+
+[node name="PasswordInput" type="LineEdit" parent="MainContainer/Panel/VBoxContainer/LoginForm"]
+layout_mode = 2
+placeholder_text = "La tua password"
+secret = true
+
+[node name="LoginButton" type="Button" parent="MainContainer/Panel/VBoxContainer/LoginForm"]
+layout_mode = 2
+text = "Accedi"
+
+[node name="RegisterForm" type="VBoxContainer" parent="MainContainer/Panel/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="EmailLabel" type="Label" parent="MainContainer/Panel/VBoxContainer/RegisterForm"]
+layout_mode = 2
+text = "Email"
+
+[node name="EmailInput" type="LineEdit" parent="MainContainer/Panel/VBoxContainer/RegisterForm"]
+layout_mode = 2
+placeholder_text = "La tua email"
+
+[node name="UsernameLabel" type="Label" parent="MainContainer/Panel/VBoxContainer/RegisterForm"]
+layout_mode = 2
+text = "Username"
+
+[node name="UsernameInput" type="LineEdit" parent="MainContainer/Panel/VBoxContainer/RegisterForm"]
+layout_mode = 2
+placeholder_text = "Il tuo username"
+
+[node name="PasswordLabel" type="Label" parent="MainContainer/Panel/VBoxContainer/RegisterForm"]
+layout_mode = 2
+text = "Password"
+
+[node name="PasswordInput" type="LineEdit" parent="MainContainer/Panel/VBoxContainer/RegisterForm"]
+layout_mode = 2
+placeholder_text = "Crea una password"
+secret = true
+
+[node name="ConfirmPasswordLabel" type="Label" parent="MainContainer/Panel/VBoxContainer/RegisterForm"]
+layout_mode = 2
+text = "Conferma Password"
+
+[node name="ConfirmPasswordInput" type="LineEdit" parent="MainContainer/Panel/VBoxContainer/RegisterForm"]
+layout_mode = 2
+placeholder_text = "Conferma la password"
+secret = true
+
+[node name="RegisterButton" type="Button" parent="MainContainer/Panel/VBoxContainer/RegisterForm"]
+layout_mode = 2
+text = "Registrati"
+
+[node name="Spacer3" type="Control" parent="MainContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="SocialLabel" type="Label" parent="MainContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Oppure continua con"
+horizontal_alignment = 1
+
+[node name="SocialButtons" type="HBoxContainer" parent="MainContainer/Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="GoogleButton" type="Button" parent="MainContainer/Panel/VBoxContainer/SocialButtons"]
+layout_mode = 2
+text = "Google"
+
+[node name="AppleButton" type="Button" parent="MainContainer/Panel/VBoxContainer/SocialButtons"]
+layout_mode = 2
+text = "Apple"
+
+[node name="ErrorLabel" type="Label" parent="MainContainer/Panel/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = ""
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="LoadingSpinner" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spinner" type="ColorRect" parent="LoadingSpinner"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.83, 0.627, 0.09, 1)

@@ -1,0 +1,38 @@
+; Engine Configuration File
+; Godot version: 4.x
+
+[application]
+config/name="Friulander"
+config/description="Gioco di cattura creature ambientato nel Friuli"
+run/main_scene="res://scenes/splash_screen.tscn"
+config/features=PackedStringArray("4.2", "Mobile")
+boot_splash/bg_color=Color(0.176471, 0.352941, 0.152941, 1)
+config/icon="res://icon.svg"
+
+[autoload]
+GameManager="*res://scripts/autoload/game_manager.gd"
+ApiClient="*res://scripts/autoload/api_client.gd"
+AudioManager="*res://scripts/autoload/audio_manager.gd"
+SettingsManager="*res://scripts/autoload/settings_manager.gd"
+TutorialManager="*res://scripts/autoload/tutorial_manager.gd"
+
+[display]
+window/size/viewport_width=1080
+window/size/viewport_height=1920
+window/size/window_width_override=540
+window/size/window_height_override=960
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
+
+[rendering]
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
+
+[gui]
+theme/custom="res://theme/main_theme.tres"
+
+[layer_names]
+2d_physics/layer_1="UI"
+2d_physics/layer_2="Map"
+2d_physics/layer_3="Creatures"

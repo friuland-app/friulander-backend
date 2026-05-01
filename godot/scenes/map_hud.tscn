@@ -1,0 +1,244 @@
+[gd_scene load_steps=5 format=3 uid="uid://map_hud"]
+
+[ext_resource type="Theme" uid="uid://c0kq6j8d0h0q" path="res://theme/main_theme.tres" id="1_theme"]
+[ext_resource type="Script" path="res://scripts/ui/map_hud.gd" id="2_script"]
+[ext_resource type="Script" path="res://scripts/ui/compass.gd" id="3_compass"]
+
+[sub_resource type="Gradient" id="1_gradient"]
+colors = PackedColorArray(0.176471, 0.352941, 0.152941, 1, 0.29, 0.56, 0.89, 1)
+
+[node name="MapHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_theme")
+script = ExtResource("2_script")
+
+[node name="MapView" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13, 0.55, 0.13, 1)
+
+[node name="Compass" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_top = 80.0
+offset_right = -20.0
+offset_bottom = 160.0
+grow_horizontal = 0
+script = ExtResource("3_compass")
+
+[node name="CompassBackground" type="ColorRect" parent="Compass"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.176471, 0.352941, 0.152941, 0.8)
+
+[node name="CompassLabel" type="Label" parent="Compass"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "N"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TopBar" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 76.0
+grow_horizontal = 2
+
+[node name="PlayerInfo" type="HBoxContainer" parent="TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="AvatarButton" type="Button" parent="TopBar/PlayerInfo"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+text = "👤"
+
+[node name="InfoContainer" type="VBoxContainer" parent="TopBar/PlayerInfo"]
+layout_mode = 2
+alignment = 1
+
+[node name="PlayerName" type="Label" parent="TopBar/PlayerInfo/InfoContainer"]
+layout_mode = 2
+text = "Giocatore"
+theme_override_font_sizes/font_size = 16
+
+[node name="LevelLabel" type="Label" parent="TopBar/PlayerInfo/InfoContainer"]
+layout_mode = 2
+text = "Liv. 1"
+theme_override_font_sizes/font_size = 12
+
+[node name="XPBar" type="ProgressBar" parent="TopBar/PlayerInfo/InfoContainer"]
+custom_minimum_size = Vector2(100, 8)
+layout_mode = 2
+value = 0.0
+
+[node name="WeatherWidget" type="Panel" parent="TopBar"]
+layout_mode = 2
+size_flags_horizontal = 10
+custom_minimum_size = Vector2(80, 50)
+
+[node name="WeatherLabel" type="Label" parent="TopBar/WeatherWidget"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "☀️ 22°C"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BottomBar" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -96.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+theme_override_constants/separation = 20
+
+[node name="ProfileButton" type="Button" parent="BottomBar"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "👤"
+
+[node name="InventoryButton" type="Button" parent="BottomBar"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "🎒"
+
+[node name="ARButton" type="Button" parent="BottomBar"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "📷 AR"
+
+[node name="QuestsButton" type="Button" parent="BottomBar"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "📜"
+
+[node name="SettingsButton" type="Button" parent="BottomBar"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "⚙️"
+
+[node name="QuestBadge" type="Panel" parent="BottomBar/QuestsButton"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -25.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 25.0
+grow_horizontal = 0
+
+[node name="BadgeLabel" type="Label" parent="BottomBar/QuestsButton/QuestBadge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 12
+
+[node name="CreatureSpawns" type="Node2D" parent="."]
+
+[node name="POIMarkers" type="Node2D" parent="."]
+
+[node name="NotificationPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 0.0
+grow_horizontal = 2
+
+[node name="NotificationLabel" type="Label" parent="NotificationPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Notifica"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="NotificationTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="GPSTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 30.0
+
+[node name="LoadingOverlay" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="LoadingLabel" type="Label" parent="LoadingOverlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -12.5
+offset_right = 50.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Caricamento..."
