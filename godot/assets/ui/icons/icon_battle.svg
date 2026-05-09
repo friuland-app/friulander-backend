@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <!-- Battle/Sword Icon -->
+  <path d="M 14 34 L 34 14" stroke="#2D5A27" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 12 28 L 20 36" stroke="#2D5A27" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="34" cy="14" r="3" fill="#D4A017"/>
+  <!-- Shield in background -->
+  <path d="M 28 28 Q 34 26 34 32 Q 34 40 28 42 Q 22 40 22 32 Q 22 26 28 28" fill="none" stroke="#D4A017" stroke-width="2" opacity="0.5"/>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <!-- Trap Container Icon -->
+  <circle cx="24" cy="24" r="16" fill="none" stroke="#2D5A27" stroke-width="2"/>
+  <line x1="8" y1="24" x2="40" y2="24" stroke="#2D5A27" stroke-width="2"/>
+  <circle cx="24" cy="24" r="5" fill="none" stroke="#D4A017" stroke-width="2"/>
+  <circle cx="24" cy="24" r="2" fill="#D4A017"/>
+  <!-- Button on top -->
+  <rect x="20" y="6" width="8" height="4" rx="1" fill="#D4A017"/>
+</svg>
