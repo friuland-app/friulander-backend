@@ -1,0 +1,147 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/battle_screen.gd" id="1_script"]
+
+[node name="BattleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.5, 0.7, 0.9, 1)
+
+[node name="EnemyCreature" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = 250.0
+grow_horizontal = 0
+
+[node name="Icon" type="Label" parent="EnemyCreature"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "👹"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnemyName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_top = 260.0
+offset_right = -50.0
+offset_bottom = 290.0
+text = "Nemico"
+horizontal_alignment = 1
+
+[node name="EnemyHealth" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_top = 300.0
+offset_right = -50.0
+offset_bottom = 310.0
+value = 100.0
+
+[node name="PlayerCreature" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -250.0
+offset_right = 200.0
+offset_bottom = -50.0
+grow_vertical = 0
+
+[node name="Icon" type="Label" parent="PlayerCreature"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "🐾"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -290.0
+offset_right = 200.0
+offset_bottom = -260.0
+text = "Tua Creatura"
+horizontal_alignment = 1
+
+[node name="PlayerHealth" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -320.0
+offset_right = 200.0
+offset_bottom = -310.0
+value = 100.0
+
+[node name="MovesPanel" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -220.0
+offset_top = -250.0
+offset_right = -20.0
+offset_bottom = -20.0
+alignment = 1
+
+[node name="Move1" type="Button" parent="MovesPanel"]
+layout_mode = 2
+text = "Attacco"
+
+[node name="Move2" type="Button" parent="MovesPanel"]
+layout_mode = 2
+text = "Difesa"
+
+[node name="Move3" type="Button" parent="MovesPanel"]
+layout_mode = 2
+text = "Speciale"
+
+[node name="Flee" type="Button" parent="MovesPanel"]
+layout_mode = 2
+text = "Fuggi"
+
+[node name="BattleLog" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -50.0
+offset_right = 150.0
+offset_bottom = 50.0
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

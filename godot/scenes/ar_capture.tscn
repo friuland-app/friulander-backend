@@ -1,0 +1,171 @@
+[gd_scene load_steps=3 format=3 uid="uid://ar_capture"]
+
+[ext_resource type="Script" path="res://scripts/ui/ar_capture.gd" id="1_script"]
+
+[node name="ARCapture" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_script")
+
+[node name="CameraFeed" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Crosshair" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopLine" type="ColorRect" parent="Crosshair"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 0.0
+offset_right = 55.0
+offset_bottom = 20.0
+
+[node name="BottomLine" type="ColorRect" parent="Crosshair"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 80.0
+offset_right = 55.0
+offset_bottom = 100.0
+
+[node name="LeftLine" type="ColorRect" parent="Crosshair"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 45.0
+offset_right = 20.0
+offset_bottom = 55.0
+
+[node name="RightLine" type="ColorRect" parent="Crosshair"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 45.0
+offset_right = 100.0
+offset_bottom = 55.0
+
+[node name="StabilityIndicator" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 100.0
+offset_right = 100.0
+offset_bottom = 110.0
+grow_horizontal = 2
+value = 50.0
+
+[node name="CreatureHealthBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 150.0
+offset_right = 150.0
+offset_bottom = 160.0
+grow_horizontal = 2
+value = 100.0
+
+[node name="CreatureName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 120.0
+offset_right = 100.0
+offset_bottom = 147.0
+grow_horizontal = 2
+text = "Creature"
+horizontal_alignment = 1
+
+[node name="TrapSelector" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -200.0
+offset_right = 150.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="BasicTrap" type="Button" parent="TrapSelector"]
+layout_mode = 2
+text = "🕸️"
+
+[node name="GreatTrap" type="Button" parent="TrapSelector"]
+layout_mode = 2
+text = "🪤"
+
+[node name="UltraTrap" type="Button" parent="TrapSelector"]
+layout_mode = 2
+text = "⚡"
+
+[node name="FleeButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -80.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Fuggi"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 70.0
+offset_bottom = 70.0
+text = "←"
+
+[node name="CaptureFeedback" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -50.0
+offset_right = 150.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Catturato!"
+horizontal_alignment = 1
+
+[node name="StabilityTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="ShakeTimer" type="Timer" parent="."]
+wait_time = 0.5
