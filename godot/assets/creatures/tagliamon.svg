@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <!-- Tagliamon - Tipo Acqua/Tagliamento River -->
+  <defs>
+    <linearGradient id="waterBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A90E2"/>
+      <stop offset="50%" stop-color="#5BC0DE"/>
+      <stop offset="100%" stop-color="#4A90E2"/>
+    </linearGradient>
+    <linearGradient id="wave" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#87CEEB"/>
+      <stop offset="50%" stop-color="#B0E0E6"/>
+      <stop offset="100%" stop-color="#87CEEB"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Body (flowing water form) -->
+  <path d="M 40 60 Q 30 40 50 30 Q 70 20 85 35 Q 100 50 90 70 Q 85 85 70 90 Q 50 95 40 85 Q 30 75 40 60" 
+        fill="url(#waterBody)" opacity="0.9"/>
+  
+  <!-- Wave details -->
+  <path d="M 45 50 Q 55 45 65 50" stroke="white" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M 50 70 Q 60 65 70 70" stroke="white" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M 55 80 Q 65 75 75 80" stroke="white" stroke-width="2" fill="none" opacity="0.6"/>
+  
+  <!-- Eyes -->
+  <ellipse cx="58" cy="45" rx="5" ry="7" fill="#003366"/>
+  <ellipse cx="72" cy="45" rx="5" ry="7" fill="#003366"/>
+  <circle cx="59" cy="44" r="1.5" fill="white"/>
+  <circle cx="73" cy="44" r="1.5" fill="white"/>
+  
+  <!-- Fin/Wave crest -->
+  <path d="M 45 25 Q 64 10 83 25" fill="url(#wave)" opacity="0.7"/>
+  <path d="M 50 20 Q 64 5 78 20" fill="#B0E0E6" opacity="0.5"/>
+  
+  <!-- Droplets -->
+  <circle cx="35" cy="55" r="3" fill="#5BC0DE"/>
+  <circle cx="95" cy="65" r="3" fill="#5BC0DE"/>
+  <circle cx="40" cy="85" r="2" fill="#5BC0DE"/>
+  
+  <!-- Fish tail -->
+  <path d="M 35 70 Q 20 60 25 80 Q 30 75 35 75" fill="#4A90E2"/>
+  
+  <!-- Type indicator -->
+  <circle cx="110" cy="110" r="12" fill="#4A90E2"/>
+  <text x="110" y="115" font-size="12" text-anchor="middle" fill="white">💧</text>
+</svg>

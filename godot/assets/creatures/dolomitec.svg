@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="rockBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6B7280"/>
+      <stop offset="100%" stop-color="#4B5563"/>
+    </linearGradient>
+  </defs>
+  <path d="M 30 80 L 50 40 L 64 25 L 78 40 L 98 80 L 98 100 L 30 100 Z" fill="url(#rockBody)"/>
+  <path d="M 45 50 L 50 40 L 55 50" fill="#F9FAFB"/>
+  <path d="M 59 35 L 64 25 L 69 35" fill="#F9FAFB"/>
+  <circle cx="55" cy="55" r="4" fill="#1F2937"/>
+  <circle cx="73" cy="55" r="4" fill="#1F2937"/>
+  <rect x="58" y="65" width="12" height="3" fill="#1F2937"/>
+  <rect x="40" y="95" width="15" height="20" rx="3" fill="#4B5563"/>
+  <rect x="73" y="95" width="15" height="20" rx="3" fill="#4B5563"/>
+  <circle cx="110" cy="110" r="12" fill="#6B7280"/>
+  <text x="110" y="115" font-size="12" text-anchor="middle" fill="white">🪨</text>
+</svg>
