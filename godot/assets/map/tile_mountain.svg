@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Mountain tile for Dolomites -->
+  <defs>
+    <linearGradient id="mtnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#90A4AE"/>
+      <stop offset="50%" stop-color="#78909C"/>
+      <stop offset="100%" stop-color="#607D8B"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky/Background -->
+  <rect width="64" height="64" fill="#B0BEC5"/>
+  
+  <!-- Mountain peaks -->
+  <path d="M 0 64 L 20 25 L 35 40 L 50 20 L 64 35 L 64 64 Z" fill="url(#mtnGrad)"/>
+  
+  <!-- Snow caps -->
+  <path d="M 18 28 L 20 25 L 22 28" fill="#ECEFF1"/>
+  <path d="M 48 23 L 50 20 L 52 23" fill="#ECEFF1"/>
+  
+  <!-- Rock texture -->
+  <line x1="25" y1="45" x2="30" y2="50" stroke="#455A64" stroke-width="1" opacity="0.3"/>
+  <line x1="40" y1="48" x2="45" y2="52" stroke="#455A64" stroke-width="1" opacity="0.3"/>
+</svg>

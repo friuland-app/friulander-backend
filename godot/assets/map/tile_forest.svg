@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Forest tile for Carnic woods -->
+  <rect width="64" height="64" fill="#558B2F"/>
+  
+  <!-- Trees -->
+  <!-- Tree 1 -->
+  <path d="M 15 40 L 10 50 L 20 50 Z" fill="#33691E"/>
+  <path d="M 15 30 L 8 42 L 22 42 Z" fill="#33691E"/>
+  <path d="M 15 22 L 10 32 L 20 32 Z" fill="#33691E"/>
+  <rect x="14" y="48" width="2" height="8" fill="#5D4037"/>
+  
+  <!-- Tree 2 -->
+  <path d="M 35 35 L 28 48 L 42 48 Z" fill="#2E7D32"/>
+  <path d="M 35 22 L 26 37 L 44 37 Z" fill="#2E7D32"/>
+  <path d="M 35 12 L 28 25 L 42 25 Z" fill="#2E7D32"/>
+  <rect x="34" y="45" width="2" height="10" fill="#4E342E"/>
+  
+  <!-- Tree 3 -->
+  <path d="M 50 42 L 46 50 L 54 50 Z" fill="#33691E"/>
+  <path d="M 50 32 L 44 42 L 56 42 Z" fill="#33691E"/>
+  <rect x="49" y="48" width="2" height="6" fill="#5D4037"/>
+  
+  <!-- Bushes -->
+  <circle cx="8" cy="55" r="4" fill="#33691E" opacity="0.7"/>
+  <circle cx="58" cy="52" r="5" fill="#2E7D32" opacity="0.6"/>
+  
+  <!-- Ground texture -->
+  <circle cx="25" cy="58" r="2" fill="#33691E" opacity="0.4"/>
+  <circle cx="45" cy="60" r="1.5" fill="#33691E" opacity="0.3"/>
+</svg>

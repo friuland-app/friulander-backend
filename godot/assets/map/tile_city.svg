@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- City tile for Udine and towns -->
+  <rect width="64" height="64" fill="#E0E0E0"/>
+  
+  <!-- Buildings -->
+  <rect x="8" y="30" width="12" height="25" fill="#9E9E9E"/>
+  <rect x="10" y="32" width="3" height="4" fill="#BDBDBD"/>
+  <rect x="15" y="32" width="3" height="4" fill="#BDBDBD"/>
+  <rect x="10" y="40" width="3" height="4" fill="#BDBDBD"/>
+  
+  <rect x="25" y="20" width="15" height="35" fill="#757575"/>
+  <rect x="28" y="25" width="4" height="6" fill="#90A4AE"/>
+  <rect x="33" y="25" width="4" height="6" fill="#90A4AE"/>
+  <rect x="28" y="35" width="4" height="6" fill="#90A4AE"/>
+  <rect x="33" y="35" width="4" height="6" fill="#90A4AE"/>
+  
+  <rect x="45" y="35" width="12" height="20" fill="#9E9E9E"/>
+  <rect x="48" y="38" width="3" height="4" fill="#BDBDBD"/>
+  <rect x="53" y="38" width="3" height="4" fill="#BDBDBD"/>
+  
+  <!-- Streets -->
+  <rect x="0" y="55" width="64" height="9" fill="#BDBDBD"/>
+  <line x1="20" y1="55" x2="20" y2="64" stroke="#9E9E9E" stroke-width="2"/>
+  <line x1="44" y1="55" x2="44" y2="64" stroke="#9E9E9E" stroke-width="2"/>
+  
+  <!-- Roofs -->
+  <path d="M 6 30 L 14 22 L 22 30" fill="#616161"/>
+  <path d="M 23 20 L 32.5 12 L 42 20" fill="#424242"/>
+  <path d="M 43 35 L 51 27 L 59 35" fill="#616161"/>
+</svg>

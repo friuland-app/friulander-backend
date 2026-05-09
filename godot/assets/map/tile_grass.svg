@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Base grass tile for plains -->
+  <defs>
+    <pattern id="grassPattern" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+      <rect width="16" height="16" fill="#7CB342"/>
+      <circle cx="4" cy="4" r="1" fill="#558B2F" opacity="0.3"/>
+      <circle cx="12" cy="8" r="1" fill="#558B2F" opacity="0.3"/>
+      <circle cx="8" cy="12" r="1.5" fill="#558B2F" opacity="0.2"/>
+    </pattern>
+  </defs>
+  
+  <rect width="64" height="64" fill="url(#grassPattern)"/>
+  
+  <!-- Subtle texture variation -->
+  <circle cx="16" cy="20" r="8" fill="#8BC34A" opacity="0.2"/>
+  <circle cx="48" cy="44" r="10" fill="#689F38" opacity="0.15"/>
+</svg>
