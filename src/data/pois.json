@@ -1,0 +1,54 @@
+{
+  "pois": [
+    {
+      "id": "castello_udine",
+      "name": "Castello di Udine",
+      "type": "castle",
+      "description": "Il simbolo della città, costruito nel XVI secolo",
+      "location": {"city": "Udine", "lat": 46.0631, "lng": 13.2361},
+      "rewards": {"xp": 100, "badge": "esploratore_castelli"},
+      "rarity": "common",
+      "photo": "assets/pois/castello_udine.jpg"
+    },
+    {
+      "id": "castello_miramare",
+      "name": "Castello di Miramare",
+      "type": "castle",
+      "description": "Romantico castello sul Golfo di Trieste",
+      "location": {"city": "Trieste", "lat": 45.7025, "lng": 13.7126},
+      "rewards": {"xp": 150, "badge": "nobilta_friulana"},
+      "rarity": "rare",
+      "photo": "assets/pois/castello_miramare.jpg"
+    },
+    {
+      "id": "basilica_aquileia",
+      "name": "Basilica di Aquileia",
+      "type": "church",
+      "description": "Gioiello paleocristiano UNESCO",
+      "location": {"city": "Aquileia", "lat": 45.7697, "lng": 13.3675},
+      "rewards": {"xp": 200, "badge": "archeologo"},
+      "rarity": "epic",
+      "photo": "assets/pois/basilica_aquileia.jpg"
+    },
+    {
+      "id": "ponte_diavolo",
+      "name": "Ponte del Diavolo",
+      "type": "landmark",
+      "description": "Antico ponte romano a Cividale",
+      "location": {"city": "Cividale", "lat": 46.0936, "lng": 13.4308},
+      "rewards": {"xp": 80, "badge": "cacciatore_leggende"},
+      "rarity": "common",
+      "photo": "assets/pois/ponte_diavolo.jpg"
+    },
+    {
+      "id": "laguna_grado",
+      "name": "Laguna di Grado",
+      "type": "nature",
+      "description": "Riserva naturale con biodiversità unica",
+      "location": {"city": "Grado", "lat": 45.6789, "lng": 13.3926},
+      "rewards": {"xp": 120, "badge": "naturalista"},
+      "rarity": "uncommon",
+      "photo": "assets/pois/laguna_grado.jpg"
+    }
+  ]
+}
