@@ -1,0 +1,79 @@
+{
+  "creatures": [
+    {
+      "id": "furlanet",
+      "name": "Furlanet",
+      "type": ["fire", "fairy"],
+      "rarity": "common",
+      "hp": 60,
+      "attack": 50,
+      "defense": 45,
+      "speed": 55,
+      "moves": ["Folklore Flame", "Tradition Guard"],
+      "habitat": ["forest", "village"],
+      "sprite": "assets/creatures/furlanet.svg",
+      "spawn_rate": 0.15,
+      "base_xp": 50
+    },
+    {
+      "id": "tagliamon",
+      "name": "Tagliamon",
+      "type": ["water", "flying"],
+      "rarity": "common",
+      "hp": 55,
+      "attack": 45,
+      "defense": 50,
+      "speed": 70,
+      "moves": ["River Rush", "Wave Crash"],
+      "habitat": ["river", "water"],
+      "sprite": "assets/creatures/tagliamon.svg",
+      "spawn_rate": 0.12,
+      "base_xp": 55
+    },
+    {
+      "id": "colliflor",
+      "name": "Colliflor",
+      "type": ["grass", "poison"],
+      "rarity": "uncommon",
+      "hp": 65,
+      "attack": 40,
+      "defense": 60,
+      "speed": 40,
+      "moves": ["Vine Whip", "Wine Mist"],
+      "habitat": ["hills", "vineyard"],
+      "sprite": "assets/creatures/colliflor.svg",
+      "spawn_rate": 0.08,
+      "base_xp": 65
+    },
+    {
+      "id": "dolomitec",
+      "name": "Dolomitec",
+      "type": ["rock", "ground"],
+      "rarity": "uncommon",
+      "hp": 80,
+      "attack": 70,
+      "defense": 85,
+      "speed": 25,
+      "moves": ["Rock Throw", "Mountain Stance"],
+      "habitat": ["mountain", "cave"],
+      "sprite": "assets/creatures/dolomitec.svg",
+      "spawn_rate": 0.06,
+      "base_xp": 70
+    },
+    {
+      "id": "aquileon",
+      "name": "Aquileon",
+      "type": ["electric", "normal"],
+      "rarity": "rare",
+      "hp": 70,
+      "attack": 75,
+      "defense": 55,
+      "speed": 80,
+      "moves": ["Thunder Claw", "Golden Roar"],
+      "habitat": ["ruins", "plains"],
+      "sprite": "assets/creatures/aquileon.svg",
+      "spawn_rate": 0.04,
+      "base_xp": 85
+    }
+  ]
+}
