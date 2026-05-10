@@ -11,8 +11,21 @@ var sfx_players: Array = []
 var max_sfx_players: int = 5
 
 # Audio resources (to be loaded)
+# UI SFX
 var click_sound: AudioStream
+var hover_sound: AudioStream
 var navigate_sound: AudioStream
+
+# Game SFX
+var capture_success_sound: AudioStream
+var capture_fail_sound: AudioStream
+var battle_start_sound: AudioStream
+var attack_hit_sound: AudioStream
+var attack_miss_sound: AudioStream
+var level_up_sound: AudioStream
+var quest_complete_sound: AudioStream
+
+# General SFX
 var notification_sound: AudioStream
 var success_sound: AudioStream
 var error_sound: AudioStream
@@ -48,16 +61,28 @@ func _setup_audio_players():
 		sfx_players.append(player)
 
 func _load_audio_resources():
-	# These would be loaded from actual audio files
 	# Load SFX
-	# click_sound = load("res://assets/audio/sfx/ui_click.ogg")
-	# success_sound = load("res://assets/audio/sfx/capture_success.ogg")
+	click_sound = load("res://assets/audio/sfx/ui_click.ogg")
+	hover_sound = load("res://assets/audio/sfx/ui_hover.ogg")
+	capture_success_sound = load("res://assets/audio/sfx/capture_success.ogg")
+	capture_fail_sound = load("res://assets/audio/sfx/capture_fail.ogg")
+	battle_start_sound = load("res://assets/audio/sfx/battle_start.ogg")
+	attack_hit_sound = load("res://assets/audio/sfx/attack_hit.ogg")
+	attack_miss_sound = load("res://assets/audio/sfx/attack_miss.ogg")
+	level_up_sound = load("res://assets/audio/sfx/level_up.ogg")
+	quest_complete_sound = load("res://assets/audio/sfx/quest_complete.ogg")
+	notification_sound = load("res://assets/audio/sfx/notification.ogg")
+	success_sound = capture_success_sound
+	achievement_sound = quest_complete_sound
+	error_sound = load("res://assets/audio/sfx/error.ogg")
 	
-	# Load music (placeholders - replace with actual files)
+	# Load music (placeholders - uncomment with actual files)
 	# main_theme = load("res://assets/audio/music/main_theme.ogg")
 	# map_ambient = load("res://assets/audio/music/map_ambient.ogg")
 	# battle_theme = load("res://assets/audio/music/battle_theme.ogg")
-	pass
+	# ar_capture_music = load("res://assets/audio/music/ar_capture.ogg")
+	# victory_music = load("res://assets/audio/music/victory.ogg")
+	# defeat_music = load("res://assets/audio/music/defeat.ogg")
 
 # Music scene-specific playback
 func play_main_theme():
@@ -139,6 +164,9 @@ func play_sfx(stream: AudioStream):
 func play_click():
 	play_sfx(click_sound)
 
+func play_hover():
+	play_sfx(hover_sound)
+
 func play_navigate():
 	play_sfx(navigate_sound)
 
@@ -153,6 +181,30 @@ func play_error():
 
 func play_achievement():
 	play_sfx(achievement_sound)
+
+# Capture SFX
+func play_capture_success():
+	play_sfx(capture_success_sound)
+
+func play_capture_fail():
+	play_sfx(capture_fail_sound)
+
+# Battle SFX
+func play_battle_start():
+	play_sfx(battle_start_sound)
+
+func play_attack_hit():
+	play_sfx(attack_hit_sound)
+
+func play_attack_miss():
+	play_sfx(attack_miss_sound)
+
+# Progression SFX
+func play_level_up():
+	play_sfx(level_up_sound)
+
+func play_quest_complete():
+	play_sfx(quest_complete_sound)
 
 func set_master_volume(value: float):
 	master_volume = clamp(value, 0.0, 1.0)
