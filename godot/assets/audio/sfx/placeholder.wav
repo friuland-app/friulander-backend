@@ -1,0 +1,11 @@
+# Placeholder SFX file
+# Replace with actual WAV audio files
+# Suggested effects:
+# - click.wav - UI click
+# - capture_success.wav - Cattura riuscita
+# - capture_fail.wav - Cattura fallita
+# - battle_start.wav - Inizio battaglia
+# - attack_hit.wav - Colpo in battaglia
+# - level_up.wav - Level up
+# - notification.wav - Notifica
+# - error.wav - Errore

@@ -18,7 +18,16 @@ var success_sound: AudioStream
 var error_sound: AudioStream
 var achievement_sound: AudioStream
 
+# Background music tracks
+var main_theme: AudioStream
+var map_ambient: AudioStream
+var battle_theme: AudioStream
+var ar_capture_music: AudioStream
+var victory_music: AudioStream
+var defeat_music: AudioStream
+
 var background_music: AudioStream
+var current_music_track: String = ""
 
 func _ready():
 	_setup_audio_players()
@@ -40,10 +49,59 @@ func _setup_audio_players():
 
 func _load_audio_resources():
 	# These would be loaded from actual audio files
-	# click_sound = load("res://audio/click.wav")
-	# navigate_sound = load("res://audio/navigate.wav")
-	# etc.
+	# Load SFX
+	# click_sound = load("res://assets/audio/sfx/ui_click.ogg")
+	# success_sound = load("res://assets/audio/sfx/capture_success.ogg")
+	
+	# Load music (placeholders - replace with actual files)
+	# main_theme = load("res://assets/audio/music/main_theme.ogg")
+	# map_ambient = load("res://assets/audio/music/map_ambient.ogg")
+	# battle_theme = load("res://assets/audio/music/battle_theme.ogg")
 	pass
+
+# Music scene-specific playback
+func play_main_theme():
+	if main_theme != null:
+		play_music(main_theme, true)
+		current_music_track = "main_theme"
+
+func play_map_ambient():
+	if map_ambient != null:
+		play_music(map_ambient, true)
+		current_music_track = "map_ambient"
+
+func play_battle_theme():
+	if battle_theme != null:
+		play_music(battle_theme, true)
+		current_music_track = "battle_theme"
+
+func play_ar_capture():
+	if ar_capture_music != null:
+		play_music(ar_capture_music, true)
+		current_music_track = "ar_capture"
+
+func play_victory():
+	if victory_music != null:
+		play_music(victory_music, false)
+		current_music_track = "victory"
+
+func play_defeat():
+	if defeat_music != null:
+		play_music(defeat_music, false)
+		current_music_track = "defeat"
+
+func fade_to_music(new_stream: AudioStream, duration: float = 1.0):
+	# Smooth transition between tracks
+	var tween = create_tween()
+	tween.tween_method(_fade_volume, music_volume, 0.0, duration * 0.5)
+	tween.tween_callback(func():
+		play_music(new_stream, true)
+		_apply_volumes()
+	)
+	tween.tween_method(_fade_volume, 0.0, music_volume, duration * 0.5)
+
+func _fade_volume(value: float):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))
 
 func _apply_volumes():
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(master_volume))
