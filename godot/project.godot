@@ -20,6 +20,7 @@ GPSManager="*res://scripts/autoload/gps_manager.gd"
 CameraManager="*res://scripts/autoload/camera_manager.gd"
 NotificationManager="*res://scripts/autoload/notification_manager.gd"
 HapticManager="*res://scripts/autoload/haptic_manager.gd"
+ObjectPool="*res://scripts/autoload/object_pool.gd"
 
 [display]
 window/size/viewport_width=1080
@@ -33,6 +34,20 @@ window/handheld/orientation=1
 [rendering]
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
+textures/vram_compression/s3tc_bptc=false
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true
+occlusion_culling/use_occlusion_culling=false
+vulkan/max_descriptors_per_pool=1024
+textures/canvas_textures/default_texture_filter=0
+
+[audio]
+buses/default_bus_layout="res://audio/default_bus_layout.tres"
+driver/enable_input=true
+driver/enable_output=true
+driver/mix_rate=44100
+driver/output_latency=40
+driver/output_latency_web=100
 
 [gui]
 theme/custom="res://theme/main_theme.tres"
