@@ -1,0 +1,39 @@
+{
+  "notification_types": [
+    {
+      "id": "creature_nearby",
+      "title": "Creatura vicina!",
+      "body": "Un {creature_name} è stato avvistato vicino a {location}",
+      "category": "creature",
+      "priority": "high"
+    },
+    {
+      "id": "quest_complete",
+      "title": "Missione completata!",
+      "body": "Hai completato: {quest_name}",
+      "category": "quest",
+      "priority": "medium"
+    },
+    {
+      "id": "daily_reward",
+      "title": "Ricompensa giornaliera",
+      "body": "Ritira la tua ricompensa giornaliera!",
+      "category": "reward",
+      "priority": "low"
+    },
+    {
+      "id": "event_start",
+      "title": "Evento speciale!",
+      "body": "{event_name} è iniziato",
+      "category": "event",
+      "priority": "high"
+    },
+    {
+      "id": "friend_online",
+      "title": "Amico online",
+      "body": "{friend_name} è ora online",
+      "category": "social",
+      "priority": "low"
+    }
+  ]
+}

@@ -18,6 +18,7 @@ TutorialManager="*res://scripts/autoload/tutorial_manager.gd"
 FontManager="*res://scripts/autoload/font_manager.gd"
 GPSManager="*res://scripts/autoload/gps_manager.gd"
 CameraManager="*res://scripts/autoload/camera_manager.gd"
+NotificationManager="*res://scripts/autoload/notification_manager.gd"
 
 [display]
 window/size/viewport_width=1080
@@ -43,6 +44,7 @@ theme/custom="res://theme/main_theme.tres"
 [android]
 permissions/location="ACCESS_FINE_LOCATION,ACCESS_COARSE_LOCATION"
 permissions/camera="CAMERA"
+permissions/notification="POST_NOTIFICATIONS"
 
 [ios]
 privacy/location_usage_description="Friulander ha bisogno della tua posizione per mostrare creature e POI vicini."
