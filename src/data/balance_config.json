@@ -1,0 +1,40 @@
+{
+  "balance": {
+    "capture_rates": {
+      "common": 0.5,
+      "uncommon": 0.35,
+      "rare": 0.2,
+      "epic": 0.1
+    },
+    "stability_bonus": {
+      "basic_bait": 0.1,
+      "great_bait": 0.2,
+      "ultra_bait": 0.3
+    },
+    "xp_progression": {
+      "level_1_to_10": 100,
+      "level_11_to_20": 200,
+      "level_21_to_30": 400,
+      "level_31_to_40": 800,
+      "level_41_to_50": 1600
+    },
+    "catch_rate_formula": {
+      "base": 0.3,
+      "hp_factor": 0.01,
+      "level_factor": 0.005
+    },
+    "battle_damage": {
+      "base_multiplier": 1.0,
+      "type_effective": 1.5,
+      "type_resist": 0.5,
+      "critical_hit": 2.0
+    },
+    "economy": {
+      "starting_coins": 500,
+      "daily_reward": 100,
+      "capture_reward": 50,
+      "battle_reward": 75,
+      "quest_reward_multiplier": 2.0
+    }
+  }
+}

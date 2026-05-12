@@ -6,7 +6,7 @@
       "description": "Cattura la tua prima creatura",
       "type": "capture",
       "requirements": {"creature_caught": 1},
-      "rewards": {"xp": 100, "coins": 50},
+      "rewards": {"xp": 50, "coins": 25, "items": ["bait_basic"]},
       "difficulty": "easy"
     },
     {
@@ -15,7 +15,7 @@
       "description": "Cattura 3 creature",
       "type": "capture",
       "requirements": {"creature_caught": 3},
-      "rewards": {"xp": 150, "coins": 75},
+      "rewards": {"xp": 120, "coins": 60, "items": ["potion_heal"]},
       "difficulty": "easy",
       "category": "daily"
     },
@@ -25,7 +25,7 @@
       "description": "Visita 2 castelli",
       "type": "exploration",
       "requirements": {"poi_type": "castle", "poi_count": 2},
-      "rewards": {"xp": 300, "coins": 150, "badge": "castle_explorer"},
+      "rewards": {"xp": 250, "coins": 125, "badge": "castle_explorer"},
       "difficulty": "medium"
     },
     {
@@ -34,7 +34,7 @@
       "description": "Vinci 5 battaglie",
       "type": "battle",
       "requirements": {"battles_won": 5},
-      "rewards": {"xp": 250, "coins": 100},
+      "rewards": {"xp": 200, "coins": 80, "items": ["revive"]},
       "difficulty": "medium",
       "category": "daily"
     },
@@ -44,7 +44,7 @@
       "description": "Cattura 3 Furlanet",
       "type": "capture",
       "requirements": {"creature_id": "furlanet", "creature_count": 3},
-      "rewards": {"xp": 400, "coins": 200},
+      "rewards": {"xp": 350, "coins": 175, "items": ["bait_great", "bait_great"]},
       "difficulty": "hard"
     }
   ]
