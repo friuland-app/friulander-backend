@@ -4,12 +4,14 @@ extends Control
 @onready var music_slider = $MusicSlider
 @onready var sfx_slider = $SFXSlider
 @onready var privacy_button = $PrivacyButton
+@onready var tos_button = $TOSButton
 
 func _ready():
 	back_button.pressed.connect(_on_back)
 	music_slider.value_changed.connect(_on_music_changed)
 	sfx_slider.value_changed.connect(_on_sfx_changed)
 	privacy_button.pressed.connect(_on_privacy)
+	tos_button.pressed.connect(_on_tos)
 
 func _on_music_changed(value):
 	AudioManager.set_music_volume(value / 100)
@@ -22,3 +24,6 @@ func _on_back():
 
 func _on_privacy():
 	OS.shell_open("https://friuland.app/privacy")
+
+func _on_tos():
+	OS.shell_open("https://friuland.app/terms")
