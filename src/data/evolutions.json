@@ -1,0 +1,46 @@
+{
+  "evolutions": [
+    {
+      "from": "furlanet",
+      "to": "furlaneg",
+      "method": "level",
+      "condition": {"level": 16}
+    },
+    {
+      "from": "furlaneg",
+      "to": "furlangrand",
+      "method": "level",
+      "condition": {"level": 32}
+    },
+    {
+      "from": "tagliamon",
+      "to": "tagliaking",
+      "method": "level",
+      "condition": {"level": 18}
+    },
+    {
+      "from": "tagliaking",
+      "to": "tagliamaster",
+      "method": "level",
+      "condition": {"level": 36}
+    },
+    {
+      "from": "colliflor",
+      "to": "collibloom",
+      "method": "level",
+      "condition": {"level": 20}
+    },
+    {
+      "from": "dolomitec",
+      "to": "dolomitegiant",
+      "method": "level",
+      "condition": {"level": 25}
+    },
+    {
+      "from": "aquileon",
+      "to": "aquileonking",
+      "method": "level",
+      "condition": {"level": 30}
+    }
+  ]
+}
