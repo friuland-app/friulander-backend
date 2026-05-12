@@ -13,6 +13,7 @@ var target_creature: Dictionary = {}
 func _ready():
 	flee_button.pressed.connect(_on_flee)
 	back_button.pressed.connect(_on_back)
+	CameraManager.start_camera()
 	_load_creature()
 
 func _load_creature():
