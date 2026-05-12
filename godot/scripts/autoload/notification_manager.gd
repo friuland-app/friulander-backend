@@ -34,7 +34,10 @@ func _send_token_to_backend(token: String):
 	pass
 
 func send_notification(title: String, body: String):
-	var notification = Notification.new()
-	notification.title = title
-	notification.body = body
-	notification.show()
+	if OS.has_feature("android"):
+		NotificationServer.notify(title, body)
+	elif OS.has_feature("ios"):
+		# iOS notifications handled via push
+		pass
+	else:
+		print("Notification: ", title, " - ", body)

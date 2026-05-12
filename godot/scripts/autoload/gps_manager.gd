@@ -68,14 +68,40 @@ func _call_javascript_gps():
 	JavaScriptBridge.eval(js_code)
 
 func _call_mobile_gps():
-	# Use Godot's mobile GPS
-	var gps = GPS.new()
-	if gps.start():
-		current_lat = gps.latitude
-		current_lng = gps.longitude
-		location_updated.emit(current_lat, current_lng)
+	# Use Godot's mobile GPS via JavaScriptBridge or platform-specific API
+	if OS.has_feature("android"):
+		# Android GPS implementation
+		var js_code = """
+		if (window.cordova && window.cordova.plugins.locationAccuracy) {
+			cordova.plugins.locationAccuracy.request(function() {
+				navigator.geolocation.getCurrentPosition(
+					function(position) {
+						godot_bridge.emit_signal('location_updated', position.coords.latitude, position.coords.longitude);
+					},
+					function(error) {
+						godot_bridge.emit_signal('location_error', error.message);
+					}
+				);
+			});
+		}
+		"""
+		JavaScriptBridge.eval(js_code)
+	elif OS.has_feature("ios"):
+		# iOS GPS implementation
+		var js_code = """
+		navigator.geolocation.getCurrentPosition(
+			function(position) {
+				godot_bridge.emit_signal('location_updated', position.coords.latitude, position.coords.longitude);
+			},
+			function(error) {
+				godot_bridge.emit_signal('location_error', error.message);
+			},
+			{ enableHighAccuracy: true }
+		);
+		"""
+		JavaScriptBridge.eval(js_code)
 	else:
-		location_error.emit("GPS not available")
+		location_error.emit("GPS not supported on this platform")
 
 func _simulate_location():
 	# Simulation for desktop testing

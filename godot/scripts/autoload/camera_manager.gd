@@ -28,8 +28,9 @@ func start_camera():
 		camera_error.emit("Nessuna fotocamera disponibile")
 		return
 	
-	# Use back camera (usually index 1)
-	camera_feed = CameraServer.get_feed(cameras[1])
+	# Use back camera (usually index 1), fallback to front (index 0)
+	if cameras.size() > 1:
+		camera_feed = CameraServer.get_feed(cameras[1])
 	if camera_feed == null:
 		camera_feed = CameraServer.get_feed(cameras[0])
 	

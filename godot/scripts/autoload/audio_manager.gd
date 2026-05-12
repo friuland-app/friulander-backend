@@ -64,6 +64,7 @@ func _load_audio_resources():
 	# Load SFX
 	click_sound = load("res://assets/audio/sfx/ui_click.ogg")
 	hover_sound = load("res://assets/audio/sfx/ui_hover.ogg")
+	navigate_sound = click_sound
 	capture_success_sound = load("res://assets/audio/sfx/capture_success.ogg")
 	capture_fail_sound = load("res://assets/audio/sfx/capture_fail.ogg")
 	battle_start_sound = load("res://assets/audio/sfx/battle_start.ogg")

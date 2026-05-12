@@ -17,7 +17,7 @@ func _ready():
 	_load_creature()
 
 func _load_creature():
-	if GameManager.nearby_creatures.size() > 0:
+	if GameManager.nearby_creatures != null and GameManager.nearby_creatures.size() > 0:
 		target_creature = GameManager.nearby_creatures[0]
 	creature_name.text = target_creature.get("name", "Creatura")
 
