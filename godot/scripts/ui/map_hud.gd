@@ -127,18 +127,22 @@ func _on_poi_discovered(poi_id: String):
 
 func _on_avatar_pressed():
 	AudioManager.play_click()
+	HapticManager.click()
 	_go_to_profile()
 
 func _on_profile_pressed():
 	AudioManager.play_click()
+	HapticManager.click()
 	_go_to_profile()
 
 func _on_inventory_pressed():
 	AudioManager.play_click()
+	HapticManager.click()
 	get_tree().change_scene_to_file("res://scenes/inventory_screen.tscn")
 
 func _on_ar_pressed():
 	AudioManager.play_click()
+	HapticManager.click()
 	# Check if creatures nearby
 	if nearby_creatures.size() > 0:
 		get_tree().change_scene_to_file("res://scenes/ar_capture.tscn")
@@ -147,10 +151,12 @@ func _on_ar_pressed():
 
 func _on_quests_pressed():
 	AudioManager.play_click()
+	HapticManager.click()
 	get_tree().change_scene_to_file("res://scenes/quests_screen.tscn")
 
 func _on_settings_pressed():
 	AudioManager.play_click()
+	HapticManager.click()
 	get_tree().change_scene_to_file("res://scenes/settings_screen.tscn")
 
 func _go_to_profile():

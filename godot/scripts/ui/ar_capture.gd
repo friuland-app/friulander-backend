@@ -34,5 +34,8 @@ func _input(event):
 func _try_capture():
 	var chance = stability / 100.0
 	if randf() < chance:
+		HapticManager.capture_success()
 		GameManager.add_creature_to_inventory(target_creature)
 		get_tree().change_scene_to_file("res://scenes/map_hud.tscn")
+	else:
+		HapticManager.capture_fail()

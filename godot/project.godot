@@ -19,6 +19,7 @@ FontManager="*res://scripts/autoload/font_manager.gd"
 GPSManager="*res://scripts/autoload/gps_manager.gd"
 CameraManager="*res://scripts/autoload/camera_manager.gd"
 NotificationManager="*res://scripts/autoload/notification_manager.gd"
+HapticManager="*res://scripts/autoload/haptic_manager.gd"
 
 [display]
 window/size/viewport_width=1080
