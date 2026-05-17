@@ -23,16 +23,17 @@ func start_camera():
 	if is_active:
 		return
 	
-	var cameras = CameraServer.feeds
-	if cameras.is_empty():
+	# In Godot 4.x, feeds() is a method that returns array of CameraFeed objects
+	var camera_feeds = CameraServer.feeds()
+	if camera_feeds == null or camera_feeds.is_empty():
 		camera_error.emit("Nessuna fotocamera disponibile")
 		return
 	
-	# Use back camera (usually index 1), fallback to front (index 0)
-	if cameras.size() > 1:
-		camera_feed = CameraServer.get_feed(cameras[1])
-	if camera_feed == null:
-		camera_feed = CameraServer.get_feed(cameras[0])
+	# Try to get camera feed from array
+	if camera_feeds.size() > 1:
+		camera_feed = camera_feeds[1]  # Back camera
+	if camera_feed == null and camera_feeds.size() > 0:
+		camera_feed = camera_feeds[0]  # Front camera fallback
 	
 	if camera_feed == null:
 		camera_error.emit("Impossibile accedere alla fotocamera")

@@ -1,15 +1,46 @@
-; Engine Configuration File
-; Godot version: 4.x
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[android]
+
+permissions/location="ACCESS_FINE_LOCATION,ACCESS_COARSE_LOCATION"
+permissions/camera="CAMERA"
+permissions/notification="POST_NOTIFICATIONS"
+
+[camera]
+
+project/position=0
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
+
 config/name="Friulander"
 config/description="Gioco di cattura creature ambientato nel Friuli"
 run/main_scene="res://scenes/splash_screen.tscn"
-config/features=PackedStringArray("4.2", "Mobile")
+config/features=PackedStringArray("4.6", "Mobile")
 boot_splash/bg_color=Color(0.176471, 0.352941, 0.152941, 1)
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://audio/default_bus_layout.tres"
+driver/output_latency=40
+driver/enable_input=true
+driver/enable_output=true
+driver/output_latency_web=100
+
 [autoload]
+
 GameManager="*res://scripts/autoload/game_manager.gd"
 ApiClient="*res://scripts/autoload/api_client.gd"
 AudioManager="*res://scripts/autoload/audio_manager.gd"
@@ -23,6 +54,7 @@ HapticManager="*res://scripts/autoload/haptic_manager.gd"
 ObjectPool="*res://scripts/autoload/object_pool.gd"
 
 [display]
+
 window/size/viewport_width=1080
 window/size/viewport_height=1920
 window/size/window_width_override=540
@@ -31,47 +63,14 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
 
-[rendering]
-renderer/rendering_method="mobile"
-textures/vram_compression/import_etc2_astc=true
-textures/vram_compression/s3tc_bptc=false
-2d/snap/snap_2d_transforms_to_pixel=true
-2d/snap/snap_2d_vertices_to_pixel=true
-occlusion_culling/use_occlusion_culling=false
-vulkan/max_descriptors_per_pool=1024
-textures/canvas_textures/default_texture_filter=0
-
-[audio]
-buses/default_bus_layout="res://audio/default_bus_layout.tres"
-driver/enable_input=true
-driver/enable_output=true
-driver/mix_rate=44100
-driver/output_latency=40
-driver/output_latency_web=100
-
-[gui]
-theme/custom="res://theme/main_theme.tres"
-
-[layer_names]
-2d_physics/layer_1="UI"
-2d_physics/layer_2="Map"
-2d_physics/layer_3="Creatures"
-
-[android]
-permissions/location="ACCESS_FINE_LOCATION,ACCESS_COARSE_LOCATION"
-permissions/camera="CAMERA"
-permissions/notification="POST_NOTIFICATIONS"
-
-[ios]
-privacy/location_usage_description="Friulander ha bisogno della tua posizione per mostrare creature e POI vicini."
-privacy/camera_usage_description="Friulander usa la fotocamera per la cattura AR delle creature."
-
 [export]
+
 include_filter=""
 exclude_filter=""
 export_filter=""
 
 [export_options_android]
+
 custom_template/debug=""
 custom_template/release=""
 custom_package/unique_name="com.friuland.friulander"
@@ -113,6 +112,7 @@ keystore/release=""
 keystore/debug_user=""
 
 [export_options_ios]
+
 application/app_store_team_id=""
 application/bundle_identifier="com.friuland.friulander"
 application/code_signing_enabled=true
@@ -138,3 +138,28 @@ application/privacy/contacts_usage_description=""
 application/privacy/microphone_usage_description=""
 application/privacy/photo_library_usage_description=""
 application/privacy/other_usage_description=""
+
+[gui]
+
+theme/custom="res://theme/main_theme.tres"
+
+[ios]
+
+privacy/location_usage_description="Friulander ha bisogno della tua posizione per mostrare creature e POI vicini."
+privacy/camera_usage_description="Friulander usa la fotocamera per la cattura AR delle creature."
+
+[layer_names]
+
+2d_physics/layer_1="UI"
+2d_physics/layer_2="Map"
+2d_physics/layer_3="Creatures"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true
+textures/vram_compression/s3tc_bptc=false
+vulkan/max_descriptors_per_pool=1024
