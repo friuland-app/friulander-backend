@@ -2,9 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://c0kq6j8d0h0q" path="res://theme/main_theme.tres" id="1_theme"]
 [ext_resource type="Script" path="res://scripts/ui/splash_screen.gd" id="2_script"]
-
-[sub_resource type="Gradient" id="1"]
-colors = PackedColorArray(0.176471, 0.352941, 0.152941, 1, 0.29, 0.56, 0.89, 1)
+[ext_resource type="Texture2D" uid="uid://main_menu_bg" path="res://assets/screens/main_menu_design.png" id="3_texture"]
 
 [node name="SplashScreen" type="Control"]
 layout_mode = 3
@@ -16,14 +14,15 @@ grow_vertical = 2
 theme = ExtResource("1_theme")
 script = ExtResource("2_script")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.176471, 0.352941, 0.152941, 1)
+texture = ExtResource("3_texture")
+expand_mode = 1
 
 [node name="LogoContainer" type="CenterContainer" parent="."]
 layout_mode = 1
