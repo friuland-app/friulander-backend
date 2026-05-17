@@ -30,9 +30,9 @@ func start_camera():
 	
 	# Use back camera (usually index 1), fallback to front (index 0)
 	if cameras.size() > 1:
-		camera_feed = CameraServer.feed(cameras[1])
+		camera_feed = CameraServer.get_feed(cameras[1])
 	if camera_feed == null:
-		camera_feed = CameraServer.feed(cameras[0])
+		camera_feed = CameraServer.get_feed(cameras[0])
 	
 	if camera_feed == null:
 		camera_error.emit("Impossibile accedere alla fotocamera")
