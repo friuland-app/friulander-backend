@@ -41,6 +41,10 @@ func _ready():
 	ApiClient.auth_error.connect(_on_auth_error)
 	ApiClient.request_completed.connect(_on_request_completed)
 	ApiClient.request_failed.connect(_on_request_failed)
+	
+	# Connect Google auth signals (if using JavaScript bridge)
+	if OS.has_feature("android") or OS.has_feature("ios"):
+		_connect_google_signals()
 
 func _setup_event_listeners():
 	login_tab.pressed.connect(_show_login_form)
@@ -51,6 +55,11 @@ func _setup_event_listeners():
 	
 	google_button.pressed.connect(_on_google_pressed)
 	apple_button.pressed.connect(_on_apple_pressed)
+
+func _connect_google_signals():
+	# This would be connected via JavaScript bridge signals
+	# For now, we'll handle it manually in the OAuth flow
+	pass
 
 func _show_login_form():
 	current_mode = AuthMode.LOGIN
@@ -150,10 +159,74 @@ func _validate_register_input(email: String, username: String, password: String,
 	return true
 
 func _on_google_pressed():
-	_show_error("Social login non ancora implementato")
+	_show_loading(true)
+	_initiate_google_oauth()
+
+func _initiate_google_oauth():
+	if OS.has_feature("web"):
+		_call_google_oauth_web()
+	elif OS.has_feature("android"):
+		_call_google_oauth_android()
+	elif OS.has_feature("ios"):
+		_call_google_oauth_ios()
+	else:
+		_show_loading(false)
+		_show_error("Google OAuth non supportato su questa piattaforma")
+
+func _call_google_oauth_web():
+	var js_code = """
+	var googleAuthUrl = 'https://accounts.google.com/o/oauth2/v2/auth?client_id=YOUR_CLIENT_ID&redirect_uri=http://localhost:3000/auth/google/callback&response_type=code&scope=email%20profile';
+	window.open(googleAuthUrl, '_blank');
+	"""
+	JavaScriptBridge.eval(js_code)
+	_show_loading(false)
+	_show_error("OAuth inizializzato - completa nel browser")
+
+func _call_google_oauth_android():
+	var js_code = """
+	if (window.cordova && window.cordova.plugins.googleplus) {
+		window.cordova.plugins.googleplus.login(
+			{},
+			function(obj) {
+				godot_bridge.emit_signal('google_auth_success', obj.idToken);
+			},
+			function(msg) {
+				godot_bridge.emit_signal('google_auth_error', msg);
+			}
+		);
+	} else {
+		godot_bridge.emit_signal('google_auth_error', 'Google plugin non disponibile');
+	}
+	"""
+	JavaScriptBridge.eval(js_code)
+
+func _call_google_oauth_ios():
+	var js_code = """
+	if (window.cordova && window.cordova.plugins.googleplus) {
+		window.cordova.plugins.googleplus.login(
+			{},
+			function(obj) {
+				godot_bridge.emit_signal('google_auth_success', obj.idToken);
+			},
+			function(msg) {
+				godot_bridge.emit_signal('google_auth_error', msg);
+			}
+		);
+	} else {
+		godot_bridge.emit_signal('google_auth_error', 'Google plugin non disponibile');
+	}
+	"""
+	JavaScriptBridge.eval(js_code)
 
 func _on_apple_pressed():
 	_show_error("Social login non ancora implementato")
+
+func _on_google_auth_success(id_token: String):
+	ApiClient.google_auth(id_token)
+
+func _on_google_auth_error(message: String):
+	_show_loading(false)
+	_show_error("Google auth error: " + message)
 
 func _on_auth_success(token: String):
 	_show_loading(false)

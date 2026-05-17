@@ -61,6 +61,13 @@ func _on_request_completed(result: int, response_code: int, headers: PackedStrin
 	
 	if response_code >= 200 and response_code < 300:
 		request_completed.emit(response)
+		
+		# Call callback if exists
+		for request_id in pending_requests.keys():
+			if pending_requests[request_id].has("callback"):
+				pending_requests[request_id]["callback"].call(response)
+				pending_requests.erase(request_id)
+				break
 	else:
 		request_failed.emit(response.get("message", "Unknown error"))
 
@@ -71,7 +78,16 @@ func register(email: String, password: String, username: String):
 		"password": password,
 		"username": username
 	}
-	_make_request("/auth/register", HTTPClient.METHOD_POST, body)
+	var request_id = _make_request("/auth/register", HTTPClient.METHOD_POST, body)
+	if request_id != "":
+		pending_requests[request_id]["callback"] = func(response):
+			if response.has("token"):
+				GameManager.set_auth_token(response["token"])
+				auth_success.emit(response["token"])
+			elif response.has("message"):
+				auth_error.emit(response["message"])
+			else:
+				auth_error.emit("Registration failed")
 
 func login(email: String, password: String):
 	var body = {
@@ -79,18 +95,34 @@ func login(email: String, password: String):
 		"password": password
 	}
 	var request_id = _make_request("/auth/login", HTTPClient.METHOD_POST, body)
-	_http_request_callback = func(response):
-		if response.has("token"):
-			GameManager.set_auth_token(response["token"])
-			auth_success.emit(response["token"])
-		else:
-			auth_error.emit("Invalid response")
-
-var _http_request_callback: Callable
+	if request_id != "":
+		pending_requests[request_id]["callback"] = func(response):
+			if response.has("token"):
+				GameManager.set_auth_token(response["token"])
+				auth_success.emit(response["token"])
+			elif response.has("message"):
+				auth_error.emit(response["message"])
+			else:
+				auth_error.emit("Login failed")
 
 func logout():
 	_make_request("/auth/logout", HTTPClient.METHOD_POST)
 	GameManager.clear_auth()
+
+func google_auth(id_token: String):
+	var body = {
+		"id_token": id_token
+	}
+	var request_id = _make_request("/auth/google", HTTPClient.METHOD_POST, body)
+	if request_id != "":
+		pending_requests[request_id]["callback"] = func(response):
+			if response.has("token"):
+				GameManager.set_auth_token(response["token"])
+				auth_success.emit(response["token"])
+			elif response.has("message"):
+				auth_error.emit(response["message"])
+			else:
+				auth_error.emit("Google auth failed")
 
 # Player
 func get_player_profile():
