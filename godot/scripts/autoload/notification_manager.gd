@@ -15,12 +15,14 @@ func _request_permissions():
 		OS.request_permission("android.permission.POST_NOTIFICATIONS")
 
 func _initialize_fcm():
-	if ClassDB.class_exists("FirebaseMessaging"):
-		var firebase = FirebaseMessaging.new()
-		add_child(firebase)
-		firebase.token_received.connect(_on_token_received)
-		firebase.message_received.connect(_on_message_received)
-		firebase.get_token()
+	# FirebaseMessaging is a plugin that needs to be installed
+	# For now, we'll use platform-specific native notifications
+	if OS.has_feature("android"):
+		# Android notifications handled via NotificationServer
+		pass
+	elif OS.has_feature("ios"):
+		# iOS notifications handled via APNs
+		pass
 
 func _on_token_received(token: String):
 	fcm_token = token

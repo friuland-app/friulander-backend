@@ -47,7 +47,7 @@ func level_up():
 func quest_complete():
 	vibrate_pattern([100, 50, 100, 50, 100])
 
-func notification():
+func notification_vibrate():
 	vibrate_pattern([50, 100])
 
 func error():
