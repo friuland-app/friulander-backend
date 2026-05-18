@@ -114,10 +114,5 @@ func _transition_to_next_scene():
 	tween.finished.connect(_change_scene)
 
 func _change_scene():
-	# Check if player is logged in
-	if GameManager.is_logged_in:
-		# Go to main game scene
-		get_tree().change_scene_to_file("res://scenes/map_hud.tscn")
-	else:
-		# Go to auth scene
-		get_tree().change_scene_to_file("res://scenes/auth_screen.tscn")
+	# Go directly to main game scene (no login required)
+	get_tree().change_scene_to_file("res://scenes/map_hud.tscn")

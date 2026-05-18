@@ -143,6 +143,15 @@ application/privacy/other_usage_description=""
 
 theme/custom="res://theme/main_theme.tres"
 
+[input]
+
+devices/pointing/emulate_touch_from_mouse=true
+devices/pointing/emulate_mouse_from_touch=true
+
+[application]
+
+config/login_required=false
+
 [ios]
 
 privacy/location_usage_description="Friulander ha bisogno della tua posizione per mostrare creature e POI vicini."
@@ -160,11 +169,6 @@ android/notification_use_ongoing=false
 android/notification_channel_name="Friulander"
 android/notification_channel_id="com.friuland.friulander.default"
 android/notification_channel_description="Notifiche di gioco"
-
-[input]
-
-devices/pointing/emulate_touch_from_mouse=true
-devices/pointing/emulate_mouse_from_touch=true
 
 [rendering]
 
