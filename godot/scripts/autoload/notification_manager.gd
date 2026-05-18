@@ -37,9 +37,26 @@ func _send_token_to_backend(token: String):
 
 func send_notification(title: String, body: String):
 	if OS.has_feature("android"):
-		NotificationServer.notify(title, body)
+		# Use JavaScriptBridge for Android notifications
+		var js_code = """
+		if (window.cordova && window.cordova.plugins.notification) {
+			cordova.plugins.notification.local.schedule({
+				title: '""" + title + """',
+				text: '""" + body + """'
+			});
+		}
+		"""
+		JavaScriptBridge.eval(js_code)
 	elif OS.has_feature("ios"):
-		# iOS notifications handled via push
-		pass
+		# iOS notifications handled via APNs
+		var js_code = """
+		if (window.cordova && window.cordova.plugins.notification) {
+			cordova.plugins.notification.local.schedule({
+				title: '""" + title + """',
+				body: '""" + body + """'
+			});
+		}
+		"""
+		JavaScriptBridge.eval(js_code)
 	else:
 		print("Notification: ", title, " - ", body)

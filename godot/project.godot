@@ -53,13 +53,6 @@ ObjectPool="*res://scripts/autoload/object_pool.gd"
 
 project/position=0
 
-[notification]
-
-android/notification_use_ongoing=false
-android/notification_channel_name="Friulander"
-android/notification_channel_id="com.friuland.friulander.default"
-android/notification_channel_description="Notifiche di gioco"
-
 [display]
 
 window/size/viewport_width=1080
@@ -160,6 +153,18 @@ privacy/camera_usage_description="Friulander usa la fotocamera per la cattura AR
 2d_physics/layer_1="UI"
 2d_physics/layer_2="Map"
 2d_physics/layer_3="Creatures"
+
+[notification]
+
+android/notification_use_ongoing=false
+android/notification_channel_name="Friulander"
+android/notification_channel_id="com.friuland.friulander.default"
+android/notification_channel_description="Notifiche di gioco"
+
+[input]
+
+devices/pointing/emulate_touch_from_mouse=true
+devices/pointing/emulate_mouse_from_touch=true
 
 [rendering]
 

@@ -8,7 +8,8 @@ func _ready():
 	_check_haptic_support()
 
 func _check_haptic_support():
-	is_enabled = Input.has_feature("haptic_feedback")
+	# Check if haptic feedback is supported on this platform
+	is_enabled = OS.has_feature("android") or OS.has_feature("ios")
 	if not is_enabled:
 		print("Haptic feedback non supportato su questo dispositivo")
 
