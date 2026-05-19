@@ -26,6 +26,10 @@ run/main_scene="res://scenes/splash_screen.tscn"
 config/features=PackedStringArray("4.6", "Mobile")
 boot_splash/bg_color=Color(0.176471, 0.352941, 0.152941, 1)
 config/icon="res://icon.svg"
+config/login_required=false
+config/map_center_lat=46.0626
+config/map_center_lon=13.2381
+config/map_scale=100000.0
 
 [audio]
 
@@ -147,10 +151,6 @@ theme/custom="res://theme/main_theme.tres"
 
 devices/pointing/emulate_touch_from_mouse=true
 devices/pointing/emulate_mouse_from_touch=true
-
-[application]
-
-config/login_required=false
 
 [ios]
 

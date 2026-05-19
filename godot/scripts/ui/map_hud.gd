@@ -2,7 +2,7 @@ extends Control
 
 # Map HUD - Main game screen with map and navigation
 
-@onready var map_view: ColorRect = $MapView
+@onready var map_view: TextureRect = $MapView
 @onready var compass: Control = $Compass
 @onready var player_name: Label = $TopBar/PlayerInfo/InfoContainer/PlayerName
 @onready var level_label: Label = $TopBar/PlayerInfo/InfoContainer/LevelLabel
@@ -65,14 +65,20 @@ func _start_gps_updates():
 func _fetch_nearby_data():
 	_show_loading(true)
 	
-	var pos = GameManager.get_player_position_dict()
-	if pos["lat"] != 0.0 or pos["lon"] != 0.0:
-		ApiClient.get_creatures_nearby(pos["lat"], pos["lon"], 500.0)
-		ApiClient.get_pois_nearby(pos["lat"], pos["lon"], 1000.0)
-	else:
-		# Use default position if GPS not available
-		ApiClient.get_creatures_nearby(46.0626, 13.2381, 500.0)
-		ApiClient.get_pois_nearby(46.0626, 13.2381, 1000.0)
+	# Load Friuli Venezia Giulia POI data
+	var fvg_pois = [
+		{"id": "udine", "name": "Udine", "lat": 46.0626, "lon": 13.2381, "type": "city"},
+		{"id": "trieste", "name": "Trieste", "lat": 45.6495, "lon": 13.7768, "type": "city"},
+		{"id": "pordenone", "name": "Pordenone", "lat": 45.9573, "lon": 12.6786, "type": "city"},
+		{"id": "gorizia", "name": "Gorizia", "lat": 45.9422, "lon": 13.6217, "type": "city"},
+		{"id": "aquileia", "name": "Aquileia", "lat": 45.7717, "lon": 13.3769, "type": "poi"},
+		{"id": "cividale", "name": "Cividale del Friuli", "lat": 46.0739, "lon": 13.4324, "type": "poi"},
+		{"id": "castello_udine", "name": "Castello di Udine", "lat": 46.0626, "lon": 13.2381, "type": "castle"},
+		{"id": "dolomiti", "name": "Dolomiti Friulane", "lat": 46.4333, "lon": 12.7667, "type": "mountain"}
+	]
+	
+	update_poi_markers(fvg_pois)
+	_show_loading(false)
 
 func _update_player_ui():
 	var data = GameManager.player_data

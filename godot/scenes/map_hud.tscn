@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://map_hud"]
+[gd_scene load_steps=6 format=3 uid="uid://map_hud"]
 
 [ext_resource type="Theme" uid="uid://c0kq6j8d0h0q" path="res://theme/main_theme.tres" id="1_theme"]
 [ext_resource type="Script" path="res://scripts/ui/map_hud.gd" id="2_script"]
 [ext_resource type="Script" path="res://scripts/ui/compass.gd" id="3_compass"]
+[ext_resource type="Texture2D" uid="uid://friuli_map" path="res://assets/screens/main_menu_design.png" id="4_texture"]
 
 [sub_resource type="Gradient" id="1_gradient"]
 colors = PackedColorArray(0.176471, 0.352941, 0.152941, 1, 0.29, 0.56, 0.89, 1)
@@ -17,14 +18,15 @@ grow_vertical = 2
 theme = ExtResource("1_theme")
 script = ExtResource("2_script")
 
-[node name="MapView" type="ColorRect" parent="."]
+[node name="MapView" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.13, 0.55, 0.13, 1)
+texture = ExtResource("4_texture")
+expand_mode = 1
 
 [node name="Compass" type="Control" parent="."]
 layout_mode = 1
